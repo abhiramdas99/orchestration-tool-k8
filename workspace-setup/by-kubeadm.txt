@@ -1,0 +1,26 @@
+Source : https://docs.tigera.io/calico/latest/getting-started/kubernetes/quickstart
+
+1) Create  master machine Qty 1 ( cpu : 2 core / memory /4gb/disk : 8gb / os : ubuntu 20.04lts). Its minimum requirement
+2) Create  slave machine  Qty 1 ( cpu : 1 core / memory /2gb/disk : 8gb / os : ubuntu 20.04lts) .its minumum requirement 
+3) step 1 : Provisioning of both master and worker node
+            1.	sudo su
+            2.	apt-get update  
+            3.	apt-get install docker.io -y
+            4.	service docker restart  
+            5.	curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -  
+            6.	echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" >/etc/apt/sources.list.d/kubernetes.list
+            7.	apt-get update
+            
+  Step 2  : On master :
+            1. run the command :  kubeadm init --pod-network-cidr=192.168.0.0/16
+            2. copy the token and paste it into the worker node.
+            
+  Step 3  : On master :
+            1. run the command the following command :
+               mkdir -p $HOME/.kube
+               sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+               sudo chown $(id -u):$(id -g) $HOME/.kube/config
+               
+  Step 4  : On master :
+            1. kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.26.0/manifests/tigera-operator.yaml
+    
