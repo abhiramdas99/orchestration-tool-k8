@@ -5,10 +5,10 @@ Source : https://docs.tigera.io/calico/latest/getting-started/kubernetes/quickst
 3) run the shell script in both master and work noded  - <br>
 https://github.com/abhiramdas99/orchestration-tool-k8/blob/main/workspace-setup/by-kubeadm/install_kubeadm.sh
 
-4) change the hostname of all machine
-   host name for mmaster : hostnamectl set-hostname master 
-   host name for worker1 : hostnamectl set-hostname worker1
-   host name for worker2 : hostnamectl set-hostname worker2
+4) change the hostname of all machine <br>
+   - host name for mmaster : hostnamectl set-hostname master <br>
+   - host name for worker1 : hostnamectl set-hostname worker1 <br>
+   - host name for worker2 : hostnamectl set-hostname worker2 <br>
 
 
    
